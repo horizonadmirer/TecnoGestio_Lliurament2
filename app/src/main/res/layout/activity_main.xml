@@ -23,22 +23,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:scaleType="center"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
 
         <ImageButton
             android:id="@+id/categoria2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
 
         <ImageButton
             android:id="@+id/categoria3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,21 +62,27 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
 
         <ImageButton
             android:id="@+id/categoria5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
 
         <ImageButton
             android:id="@+id/categoria6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            app:srcCompat="@mipmap/btn_categoria" />
+            android:backgroundTint="#00FFFFFF"
+            android:scaleType="centerCrop"
+            app:srcCompat="@mipmap/boto_categoria2" />
     </LinearLayout>
 
     <View
