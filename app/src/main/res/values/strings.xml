@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">TecnoGestió</string>
-    <string name="cerca_avancada">Cerca Avançada</string>
+    <string name="cerca_avancada">Cerca avançada</string>
+    <string name="tornar_enrere">Tornar enrere</string>
+    <string name="seleciona_marca">Sel·lecciona la marca:</string>
+    <string name="boto_cercar">Cercar</string>
 </resources>

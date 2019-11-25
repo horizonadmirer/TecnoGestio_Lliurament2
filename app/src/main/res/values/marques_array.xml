@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="marques_array">
+        <item>Toshiba</item>
+        <item>Apple</item>
+        <item>Samsung</item>
+        <item>Epson</item>
+        <item>Acer</item>
+        <item>Dell</item>
+        <item>Intel</item>
+        <item>Kingston</item>
+        <item>Sandisk</item>
+    </string-array>
+
+</resources>
