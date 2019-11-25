@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <!-- Disseny de l'activitat Main (principal).
      Marc Bajona i Ester Castellà
      M07-UF1 Lliurament 2 -->
@@ -304,8 +305,5 @@
         </LinearLayout>
 
     </ScrollView>
-
-
-    <!--/ScrollView-->
-
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
