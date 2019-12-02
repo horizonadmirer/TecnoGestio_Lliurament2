@@ -4,4 +4,5 @@
     <string name="tornar_enrere">Tornar enrere</string>
     <string name="seleciona_marca">Sel·lecciona la marca:</string>
     <string name="boto_cercar">Cercar</string>
+    <string name="descripcio_llarga">Descripció llarga producte,\nespecificacions, garantia,\netc.</string>
 </resources>

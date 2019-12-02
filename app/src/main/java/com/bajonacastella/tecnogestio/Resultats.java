@@ -7,13 +7,17 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.webkit.WebView;
 
 public class Resultats extends AppCompatActivity {
 
+    WebView wv;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultats);
+        wv = findViewById(R.id.webViewDades);
+        wv.loadUrl("file:///android_asset/resultats.html");
     }
 
     @Override

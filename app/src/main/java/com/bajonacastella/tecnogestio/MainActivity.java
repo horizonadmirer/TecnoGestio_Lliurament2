@@ -3,6 +3,9 @@ package com.bajonacastella.tecnogestio;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -11,10 +14,25 @@ import android.view.MenuItem;
 
 public class MainActivity extends AppCompatActivity {
 
+    private SQLiteDatabase db;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        SQLiteDatabase db = SQLiteDatabase.openDatabase(
+                "/data/data/com.bajonacastella.tecnogestio/databases/db_tecnogestio.db",
+                null,
+                SQLiteDatabase.OPEN_READONLY
+        );
+
+        Cursor c = db.query("productes", null, null, null, null, null, null);
+
+        c.moveToNext();
+
+        Log.e("BASE DE DADES", c.getString(0));
+
     }
 
     @Override
