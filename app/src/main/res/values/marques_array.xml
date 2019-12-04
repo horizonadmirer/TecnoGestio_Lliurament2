@@ -2,15 +2,14 @@
 <resources>
 
     <string-array name="marques_array">
-        <item>Toshiba</item>
+        <item>Totes les marques</item>
         <item>Apple</item>
+        <item>Asus</item>
+        <item>Canon</item>
+        <item>Nintendo</item>
+        <item>Owlotech</item>
         <item>Samsung</item>
-        <item>Epson</item>
-        <item>Acer</item>
-        <item>Dell</item>
-        <item>Intel</item>
-        <item>Kingston</item>
-        <item>Sandisk</item>
+        <item>Sony</item>
     </string-array>
 
 </resources>
