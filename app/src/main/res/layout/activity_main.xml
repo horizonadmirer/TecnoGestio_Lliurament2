@@ -32,6 +32,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
 
@@ -41,6 +42,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
 
@@ -50,6 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
     </LinearLayout>
@@ -71,6 +74,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
 
@@ -80,6 +84,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
 
@@ -89,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:backgroundTint="#00FFFFFF"
+            android:onClick="botonsCategories"
             android:scaleType="centerCrop"
             app:srcCompat="@mipmap/boto_categoria2" />
     </LinearLayout>
