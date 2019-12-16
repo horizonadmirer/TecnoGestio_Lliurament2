@@ -17,6 +17,12 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+/**
+ * Classe CercaAvancada en la qual l'usuari podrà realitzar una cerca amb diversos paràmetres.
+ * M07-UF1 Lliurament 4
+ * Marc Bajona i Ester Castellà
+ */
+
 public class CercaAvancada extends AppCompatActivity {
 
     Button btnCercar;
@@ -32,6 +38,8 @@ public class CercaAvancada extends AppCompatActivity {
 
         final TextView barraPreuValor = findViewById(R.id.txValorBarra);
 
+        // Actualitzem el textView relacionat amb el SeekBar per
+        // informar a l'usuari de la quantitat d'€ que està sel·leccionant.
         barraPreu.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){
 
             @Override
@@ -55,14 +63,14 @@ public class CercaAvancada extends AppCompatActivity {
             }
         });
 
+        // Associem els valors que tenim en el fitxer marques_array.xlm a el Spinner.
         spinnerMarca =findViewById(R.id.spinnerMarca);
-        // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.marques_array, android.R.layout.simple_spinner_item);
-        // Specify the layout to use when the list of choices appears
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        // Apply the adapter to the spinner
         spinnerMarca.setAdapter(adapter);
 
+        // Fem que el NumberPicker tingui un màxim de valors de 6 i canviem els números per Strings
+        // comprensibles per l'usuari.
         picker = findViewById(R.id.categoriaPicker);
         picker.setMinValue(0);
         picker.setMaxValue(6);
@@ -73,6 +81,11 @@ public class CercaAvancada extends AppCompatActivity {
 
     }
 
+    /**
+     * Mètode per obrir l'activitat Resultats, enviant amb el putExtra() totes les dades
+     * necessàries per fer la query avançada en la nova activitat.
+     * @param v
+     */
     public void cercaAvancada (View v) {
 
         Intent i = new Intent(getApplicationContext(),Resultats.class);

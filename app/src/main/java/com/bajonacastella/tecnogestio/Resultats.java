@@ -14,6 +14,12 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+/**
+ * Classe Resultats en la qual mostrarem els resultats en un ListView segons la cerca avançada.
+ * M07-UF1 Lliurament 4
+ * Marc Bajona i Ester Castellà
+ */
+
 public class Resultats extends AppCompatActivity {
 
     WebView wv;
@@ -27,20 +33,27 @@ public class Resultats extends AppCompatActivity {
         setContentView(R.layout.activity_resultats);
         //wv = findViewById(R.id.webViewDades);
         //wv.loadUrl("file:///android_asset/resultats.html");
+
         llista = findViewById(R.id.llistaResultats);
-        //tx = findViewById(R.id.txProva);
+
+        // Agafem els valors corresponents als ítems que hi han en la classe Cerca Avançada.
         int valorSeekbar = getIntent().getIntExtra("barraPreu",100000); // Seekbar funcionant (rang de preu)
         int valorNumberPicker = getIntent().getIntExtra("categoria",0); // NumberPicker funcionant (categories)
         String valorSpinner = getIntent().getStringExtra("marca"); // Spinner funcionant (marques)
 
-        //tx.setText("El valor és: " + valorSpinner);
 
+        // Obrim la nostra base de dades creada amb DB Browser i penjada al nostre mòbil en format només lectura.
         db = SQLiteDatabase.openDatabase(
                 "/data/data/com.bajonacastella.tecnogestio/databases/db_tecnogestio.db",
                 null,
                 SQLiteDatabase.OPEN_READONLY
         );
 
+        /*
+            Construïm mica a mica la query avançada, part per part.
+            Tenim en compte si l'usuari no sel·leciona una marca, categoria o rang de preu específic,
+            per tal així de mostrar tots els productes de la base de dades.
+         */
         String marcaQuery = "";
         if(valorSpinner.equals("Totes les marques")) {
             marcaQuery = "marca LIKE '%'";
@@ -66,15 +79,17 @@ public class Resultats extends AppCompatActivity {
         String orderByQuery = "preuUnitari ASC";
 
 
+        // Finalment fem la query i si un resultat o més, construïm la llista que mostrarà el ArrayAdapter.
         Cursor c = db.query("productes", null, whereQuery, null, null, null, orderByQuery);
         int numResultats = c.getCount();
         if(numResultats != 0) {
             Log.e("REGISTRES: ", String.valueOf(c.getCount()));
             String[] values = new String[numResultats];
             int i = 0;
-            //Movem el cursor a la primera posició
+            //Movem el cursor a la primera posició.
             if (c.moveToFirst()) {
                 do {
+                    // Construïm l'String amb tota l'informació corresponent al producte i fem un format més comprensible per l'usuari.
                     values[i] = "\n" + c.getString(1) + "\n" + c.getString(3) + "\nPreu unitat: " + c.getString(5) + " €\n"
                                 + "Marca: "+  c.getString(2)  +"\t\tStock restant: " + c.getString(4) + "\n";
                     i++;
@@ -91,10 +106,6 @@ public class Resultats extends AppCompatActivity {
 
             llista.setAdapter(adaptador);
         }
-
-
-
-
         c.close();
     }
 

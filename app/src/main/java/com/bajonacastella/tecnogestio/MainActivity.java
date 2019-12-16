@@ -16,6 +16,12 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
+/**
+ * Classe Main en la qual mostrarem 6 botons per a les 6 categories amb un resultat bàsic.
+ * M07-UF1 Lliurament 4
+ * Marc Bajona i Ester Castellà
+ */
+
 public class MainActivity extends AppCompatActivity {
 
     private SQLiteDatabase db;
@@ -37,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
         btnCat5 = findViewById(R.id.categoria5);
         btnCat6 = findViewById(R.id.categoria6);
 
+        // Obrim la nostra base de dades creada amb DB Browser i penjada al nostre mòbil en format només lectura.
         db = SQLiteDatabase.openDatabase(
                 "/data/data/com.bajonacastella.tecnogestio/databases/db_tecnogestio.db",
                 null,
@@ -66,6 +73,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Mètode associat a tots els botons de les categories 1-6.
+     * Executarà una query simple a la base de dades i mostrarà
+     * el primer resultat en la part inferior de la pantalla del mòbil.
+     * @param v
+     */
     public void botonsCategories (View v) {
         if(v == btnCat1) {
             argsCategoria[0] = "1";
