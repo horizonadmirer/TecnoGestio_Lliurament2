@@ -27,6 +27,7 @@ public class Resultats extends AppCompatActivity {
     TextView tx;
     ArrayAdapter adaptador;
     ListView llista;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,11 +50,11 @@ public class Resultats extends AppCompatActivity {
                 SQLiteDatabase.OPEN_READONLY
         );
 
-        /*
-            Construïm mica a mica la query avançada, part per part.
-            Tenim en compte si l'usuari no sel·leciona una marca, categoria o rang de preu específic,
-            per tal així de mostrar tots els productes de la base de dades.
-         */
+
+        //Construïm mica a mica la query avançada, part per part.
+        //Tenim en compte si l'usuari no sel·leciona una marca, categoria o rang de preu específic,
+        //per tal així de mostrar tots els productes de la base de dades.
+
         String marcaQuery = "";
         if(valorSpinner.equals("Totes les marques")) {
             marcaQuery = "marca LIKE '%'";
@@ -84,18 +85,35 @@ public class Resultats extends AppCompatActivity {
         int numResultats = c.getCount();
         if(numResultats != 0) {
             Log.e("REGISTRES: ", String.valueOf(c.getCount()));
-            String[] values = new String[numResultats];
+            //String[] values = new String[numResultats];
+            String[] nomProducte = new String[numResultats];
+            String[] descripcioProducte =  new String[numResultats];
+            String[] marcaProducte =  new String[numResultats];
+            String[] stockProducte =  new String[numResultats];
+            String[] preuProducte =  new String[numResultats];
+            Integer[] idImatge = new Integer[numResultats];
             int i = 0;
+
             //Movem el cursor a la primera posició.
             if (c.moveToFirst()) {
                 do {
-                    // Construïm l'String amb tota l'informació corresponent al producte i fem un format més comprensible per l'usuari.
+                    /*// Construïm l'String amb tota l'informació corresponent al producte i fem un format més comprensible per l'usuari.
                     values[i] = "\n" + c.getString(1) + "\n" + c.getString(3) + "\nPreu unitat: " + c.getString(5) + " €\n"
-                                + "Marca: "+  c.getString(2)  +"\t\tStock restant: " + c.getString(4) + "\n";
+                                + "Marca: "+  c.getString(2)  +"\t\tStock restant: " + c.getString(4) + "\n"; */
+
+                    nomProducte[i] = c.getString(1);
+                    descripcioProducte[i] = c.getString(3);
+                    marcaProducte[i] = c.getString(2);
+                    stockProducte[i] = c.getString(4);
+                    preuProducte[i] = c.getString(5) + " €";
+                    idImatge[i] = getResources().getIdentifier(c.getString(7),"drawable",getPackageName());
+                    //Log.e("IMATGE NOM", "" + idImatge[i]);
+
                     i++;
                 } while (c.moveToNext());
 
-                adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
+                ListViewPersonalitzada adaptador = new ListViewPersonalitzada(this,nomProducte,descripcioProducte,marcaProducte,stockProducte,preuProducte,idImatge);
+                //adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
 
                 llista.setAdapter(adaptador);
             }
@@ -107,6 +125,7 @@ public class Resultats extends AppCompatActivity {
             llista.setAdapter(adaptador);
         }
         c.close();
+
     }
 
     @Override
