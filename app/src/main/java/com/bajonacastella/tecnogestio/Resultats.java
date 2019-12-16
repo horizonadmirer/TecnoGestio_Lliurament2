@@ -22,7 +22,7 @@ import android.widget.TextView;
 
 public class Resultats extends AppCompatActivity {
 
-    WebView wv;
+    //WebView wv;
     SQLiteDatabase db;
     TextView tx;
     ArrayAdapter adaptador;
