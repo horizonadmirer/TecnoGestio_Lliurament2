@@ -9,7 +9,7 @@
 
     <!-- Disseny de l'activitat Resultats (gràcies a la cerca avançada).
      Marc Bajona i Ester Castellà
-     M07-UF1 Lliurament 4 -->
+     M07-UF1 Lliurament 5 -->
 
     <!-- Ho mostrarem tot amb un ListView associat a un ArrayAdapter simple en el codi Java -->
     <ListView

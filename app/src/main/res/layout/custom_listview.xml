@@ -4,11 +4,20 @@
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <!-- Disseny de l'activitat Custom ListView.
+    Marc Bajona i Ester Castellà
+    M07-UF1 Lliurament 5 -->
+
+    <!-- Creem dos Linear Layouts per mostrar les dades
+     que ens donen com a resultat de la cerca avançada-->
+
     <LinearLayout
         android:id="@+id/linLayHor1"
         android:layout_width="match_parent"
         android:layout_height="164dp"
         android:orientation="horizontal">
+
+        <!-- ImatgeView que ens mostra la imatge del producte selecionat. -->
 
         <ImageView
             android:id="@+id/imgProducte"
@@ -26,6 +35,7 @@
             android:layout_weight="1"
             android:orientation="vertical">
 
+            <!-- TextView que ens mostra el nom del producte selecionat. -->
             <TextView
                 android:id="@+id/txtNomProducte"
                 android:layout_width="match_parent"
@@ -39,6 +49,7 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
+            <!-- TextView que ens mostra la descripció del producte selecionat. -->
             <TextView
                 android:id="@+id/txtDescripcioProducte"
                 android:layout_width="match_parent"
@@ -48,6 +59,7 @@
                 android:text="DESCRIPCIÓ PRODUCTE"
                 android:textAlignment="center" />
 
+            <!-- TextView que ens mostra les unitats restants i la marca del producte selecionat. -->
             <TextView
                 android:id="@+id/txtMarcaUnitats"
                 android:layout_width="match_parent"
@@ -56,6 +68,7 @@
                 android:text="MARCA i UNITATS"
                 android:textAlignment="center" />
 
+            <!-- TextView que ens mostra el preu del producte selecionat. -->
             <TextView
                 android:id="@+id/txtPreu"
                 android:layout_width="match_parent"

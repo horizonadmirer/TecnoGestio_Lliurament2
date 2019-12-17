@@ -9,11 +9,13 @@
 
     <!-- Disseny de l'activitat Cerca Avançada.
      Marc Bajona i Ester Castellà
-     M07-UF1 Lliurament 4 -->
+     M07-UF1 Lliurament 5 -->
 
     <!-- Creem varis elements per representar tots els filtres
      que podem aplicar per fer una cerca avançada de productes
      Una seekbar, un spinner, un numberpicker i finalment un botó per cercar. -->
+
+    <!-- Creem seekbar, per escollir un rang de preus. -->
 
     <SeekBar
         android:id="@+id/barra_preu"
@@ -26,6 +28,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
+    <!-- TextView que ens mostra des de 0 al preu escollit en la seekBar anterior -->
 
     <TextView
         android:id="@+id/txValorBarra"
@@ -42,6 +47,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra_preu" />
 
+    <!-- Valor mínim a escollir -->
     <TextView
         android:id="@+id/txtValorInicial"
         android:layout_width="wrap_content"
@@ -55,6 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/barra_preu" />
 
+    <!-- Valor máxim a escollir -->
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
@@ -68,6 +75,9 @@
         app:layout_constraintStart_toEndOf="@+id/txValorBarra"
         app:layout_constraintTop_toBottomOf="@+id/barra_preu" />
 
+
+    <!-- Spinner que ens permet escollir totes les
+    categories, o bé la opció de totes les categories. -->
     <Spinner
         android:id="@+id/spinnerMarca"
         android:layout_width="0dp"
@@ -80,6 +90,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
+
+    <!-- Numberpicker que ens permet seleccionar les marques
+    de dispositius que tenim, o bé totes les marques. -->
+
     <NumberPicker
         android:id="@+id/categoriaPicker"
         android:layout_width="0dp"
@@ -91,6 +105,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txValorBarra" />
 
+
+    <!-- Titol de totes les marques -->
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -102,6 +118,8 @@
         android:textSize="16sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/categoriaPicker" />
+
+    <!-- Button que ens permet cercar les dades anteriorment seleccionades. -->
 
     <Button
         android:id="@+id/btn_cercar"
