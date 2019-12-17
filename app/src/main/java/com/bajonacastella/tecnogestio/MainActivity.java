@@ -8,7 +8,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,10 +15,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.TextView;
 
 /**
  * Classe Main en la qual mostrarem 6 botons per a les 6 categories amb un resultat bàsic.
@@ -34,17 +31,16 @@ public class MainActivity extends AppCompatActivity {
     boolean benvinguda;
     String[] argsCategoria;
     ImageButton btnCat1,btnCat2,btnCat3,btnCat4,btnCat5,btnCat6;
-    TextView txtDescripcioProducte1, txtNomProducte1;
     ArrayAdapter adaptador;
     ListView llista;
+    String[] valorNul = {"No hi ha productes"};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         argsCategoria = new String[1];
-        //txtNomProducte1 = findViewById(R.id.txtPreu);
-        //txtDescripcioProducte1 = findViewById(R.id.txtPreu);
         llista = findViewById(R.id.llistaBasica);
         btnCat1 = findViewById(R.id.categoria1);
         btnCat2 = findViewById(R.id.categoria2);
@@ -52,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
         btnCat4 = findViewById(R.id.categoria4);
         btnCat5 = findViewById(R.id.categoria5);
         btnCat6 = findViewById(R.id.categoria6);
+
 
         // Obrim la nostra base de dades creada amb DB Browser i penjada al nostre mòbil en format només lectura.
         db = SQLiteDatabase.openDatabase(
@@ -61,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
         );
 
         prefs = getSharedPreferences("FitxerPreferencies",MODE_PRIVATE);
-        benvinguda = prefs.getBoolean("benvinguda",false);
+        benvinguda = prefs.getBoolean("benviinguda",false);
 
         if(!benvinguda)
         {
@@ -70,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
                     .setCancelable(false)
                     .setMessage("Ara podràs consultar els productes per categoria bàsica o, si ho desitges, també " +
                             "podràs fer cerques avançades. \n Gràcies per escollir la nostra aplicació!")
+                    .setIcon(R.mipmap.ic_launcher_round)
                     .setPositiveButton("Molt bé, gràcies!", new DialogInterface.OnClickListener()
                     {
                         @Override
@@ -116,37 +114,67 @@ public class MainActivity extends AppCompatActivity {
             argsCategoria[0] = "1";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
         if(v == btnCat2) {
             argsCategoria[0] = "2";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
         if(v == btnCat3) {
             argsCategoria[0] = "3";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
         if(v == btnCat4) {
             argsCategoria[0] = "4";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
         if(v == btnCat5) {
             argsCategoria[0] = "5";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
         if(v == btnCat6) {
             argsCategoria[0] = "6";
             Cursor c = db.query("productes", null, "categoria=?", argsCategoria, null, null, null);
 
-            llista.setAdapter(crearList(c));
+            adaptador = crearList(c);
+            if(adaptador != null) {
+                llista.setAdapter(adaptador);
+            } else {
+                llista.setAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul));
+            }
         }
     }
 
