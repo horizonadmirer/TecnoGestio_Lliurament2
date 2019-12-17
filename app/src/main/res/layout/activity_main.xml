@@ -34,7 +34,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/pcs" />
 
         <ImageButton
             android:id="@+id/categoria2"
@@ -44,7 +44,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/components" />
 
         <ImageButton
             android:id="@+id/categoria3"
@@ -54,7 +54,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/telefonia" />
     </LinearLayout>
 
     <LinearLayout
@@ -76,7 +76,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/cablejat" />
 
         <ImageButton
             android:id="@+id/categoria5"
@@ -86,7 +86,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/consoles" />
 
         <ImageButton
             android:id="@+id/categoria6"
@@ -96,7 +96,7 @@
             android:backgroundTint="#00FFFFFF"
             android:onClick="botonsCategories"
             android:scaleType="centerCrop"
-            app:srcCompat="@mipmap/boto_categoria2" />
+            app:srcCompat="@drawable/impresores" />
     </LinearLayout>
 
     <View
