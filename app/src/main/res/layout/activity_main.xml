@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".MainActivity">
 
 
@@ -114,9 +115,10 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="16dp"
+        android:layout_marginBottom="15dp"
+        android:background="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -130,5 +132,5 @@
      la densitat de pantalla i la resolució de pantalla de cada dispositiu (arxiu adjunt).
     -->
 
-    
+
 </androidx.constraintlayout.widget.ConstraintLayout>
