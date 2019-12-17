@@ -10,7 +10,7 @@
 
     <!-- Disseny de l'activitat Main (principal).
      Marc Bajona i Ester Castellà
-     M07-UF1 Lliurament 4 -->
+     M07-UF1 Lliurament 5 -->
 
     <!-- Creem dos Linear Layouts amb 3 ImageButtons cadascún
      que faràn de sel·lectors de les categories. -->
@@ -122,14 +122,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divisor" />
-
-
-    <!-- Creem un ScrollView que permetrà fer scroll down i up de tots els elements
-     de la categoria sel·leccionada prèviament amb els ImageButtons.
-
-     A més, aquest element contenidor canviarà la seva mida (width i height) segons
-     la densitat de pantalla i la resolució de pantalla de cada dispositiu (arxiu adjunt).
-    -->
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
