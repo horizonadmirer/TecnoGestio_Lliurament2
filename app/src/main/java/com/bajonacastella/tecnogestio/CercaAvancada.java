@@ -19,7 +19,7 @@ import android.widget.TextView;
 
 /**
  * Classe CercaAvancada en la qual l'usuari podrà realitzar una cerca amb diversos paràmetres.
- * M07-UF1 Lliurament 4
+ * M07-UF1 Lliurament 5
  * Marc Bajona i Ester Castellà
  */
 
@@ -97,6 +97,7 @@ public class CercaAvancada extends AppCompatActivity {
 
     }
 
+    // Mètodes per mostrar el menú corresponent.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar

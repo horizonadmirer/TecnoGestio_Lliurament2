@@ -16,15 +16,13 @@ import android.widget.TextView;
 
 /**
  * Classe Resultats en la qual mostrarem els resultats en un ListView segons la cerca avançada.
- * M07-UF1 Lliurament 4
+ * M07-UF1 Lliurament 5
  * Marc Bajona i Ester Castellà
  */
 
 public class Resultats extends AppCompatActivity {
 
-    //WebView wv;
     SQLiteDatabase db;
-    TextView tx;
     ArrayAdapter adaptador;
     ListView llista;
 
@@ -32,8 +30,6 @@ public class Resultats extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resultats);
-        //wv = findViewById(R.id.webViewDades);
-        //wv.loadUrl("file:///android_asset/resultats.html");
 
         llista = findViewById(R.id.llistaResultats);
 
@@ -80,7 +76,7 @@ public class Resultats extends AppCompatActivity {
         String orderByQuery = "preuUnitari ASC";
 
 
-        // Finalment fem la query i si un resultat o més, construïm la llista que mostrarà el ArrayAdapter.
+        // Finalment fem la query i si un resultat o més, construïm la llista que mostrarà el nostre adaptador personalitzat.
         Cursor c = db.query("productes", null, whereQuery, null, null, null, orderByQuery);
         int numResultats = c.getCount();
         if(numResultats != 0) {
@@ -97,8 +93,7 @@ public class Resultats extends AppCompatActivity {
             //Movem el cursor a la primera posició.
             if (c.moveToFirst()) {
                 do {
-                    /*// Construïm l'String amb tota l'informació corresponent al producte i fem un format més comprensible per l'usuari.
-                    values[i] = "\n" + c.getString(1) + "\n" + c.getString(3) + "\nPreu unitat: " + c.getString(5) + " €\n"
+                    /*values[i] = "\n" + c.getString(1) + "\n" + c.getString(3) + "\nPreu unitat: " + c.getString(5) + " €\n"
                                 + "Marca: "+  c.getString(2)  +"\t\tStock restant: " + c.getString(4) + "\n"; */
 
                     nomProducte[i] = c.getString(1);
@@ -118,6 +113,7 @@ public class Resultats extends AppCompatActivity {
                 llista.setAdapter(adaptador);
             }
         } else {
+            // Si no hi ha resultats, ensenyem que no n'hi ha amb un simple adaptador tipus ArrayAdapter.
             Log.e("BASE DE DADES", "No hi ha resultats");
             String[] valorNul = {"No hi ha resultats"};
             adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, valorNul);
@@ -128,6 +124,7 @@ public class Resultats extends AppCompatActivity {
 
     }
 
+    // Mètodes per mostrar el menú corresponent.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar

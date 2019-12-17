@@ -20,7 +20,7 @@ import android.widget.ListView;
 
 /**
  * Classe Main en la qual mostrarem 6 botons per a les 6 categories amb un resultat bàsic.
- * M07-UF1 Lliurament 4
+ * M07-UF1 Lliurament 5
  * Marc Bajona i Ester Castellà
  */
 
@@ -57,8 +57,9 @@ public class MainActivity extends AppCompatActivity {
                 SQLiteDatabase.OPEN_READONLY
         );
 
+        // Mostrem una alerta per donar la benvinguda al usuari a l'app.
         prefs = getSharedPreferences("FitxerPreferencies",MODE_PRIVATE);
-        benvinguda = prefs.getBoolean("benviinguda",false);
+        benvinguda = prefs.getBoolean("benvinguda",false);
 
         if(!benvinguda)
         {
@@ -83,6 +84,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    // Mètodes per mostrar el menú corresponent.
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu items for use in the action bar
@@ -106,7 +108,12 @@ public class MainActivity extends AppCompatActivity {
     /**
      * Mètode associat a tots els botons de les categories 1-6.
      * Executarà una query simple a la base de dades i mostrarà
-     * el primer resultat en la part inferior de la pantalla del mòbil.
+     * tots els resultats en una ListView personalitzada
+     * en la part inferior de la pantalla del mòbil.
+     *
+     * Per cada botó, crearà un a query en un cursor que serà passat
+     * com a paràmetre al mètode crearList() i retornarà null o un adapter
+     * per la nostra listView.
      * @param v
      */
     public void botonsCategories (View v) {
@@ -178,12 +185,18 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    /**
+     * Mètode per inicialitzar un adaptador personalitzat amb el nostre constructor de
+     * listView prèviament creat.
+     * @param c     Cursor que té la query referent als productes per cada categoria.
+     * @return      Retorna NULL si no té resultats o retorna un ListViewPersonalitzada
+     *              construït per mostrar les dades corresponents als productes sel·leccionats.
+     */
     public ListViewPersonalitzada crearList (Cursor c) {
         int numResultats = c.getCount();
         ListViewPersonalitzada adaptador = null;
         if(numResultats != 0) {
-            Log.e("REGISTRES: ", String.valueOf(c.getCount()));
-            //String[] values = new String[numResultats];
             String[] nomProducte = new String[numResultats];
             String[] descripcioProducte = new String[numResultats];
             String[] marcaProducte = new String[numResultats];
@@ -195,18 +208,12 @@ public class MainActivity extends AppCompatActivity {
             //Movem el cursor a la primera posició.
             if (c.moveToFirst()) {
                 do {
-                    /*// Construïm l'String amb tota l'informació corresponent al producte i fem un format més comprensible per l'usuari.
-                    values[i] = "\n" + c.getString(1) + "\n" + c.getString(3) + "\nPreu unitat: " + c.getString(5) + " €\n"
-                                + "Marca: "+  c.getString(2)  +"\t\tStock restant: " + c.getString(4) + "\n"; */
-
                     nomProducte[i] = c.getString(1);
                     descripcioProducte[i] = c.getString(3);
                     marcaProducte[i] = c.getString(2);
                     stockProducte[i] = c.getString(4);
                     preuProducte[i] = c.getString(5) + " €";
                     idImatge[i] = getResources().getIdentifier(c.getString(7), "drawable", getPackageName());
-                    //Log.e("IMATGE NOM", "" + idImatge[i]);
-
                     i++;
                 } while (c.moveToNext());
 
