@@ -148,7 +148,6 @@ public class MainActivity extends AppCompatActivity {
 
             llista.setAdapter(crearList(c));
         }
-
     }
 
     public ListViewPersonalitzada crearList (Cursor c) {
